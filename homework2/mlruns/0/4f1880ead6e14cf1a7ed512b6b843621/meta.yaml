@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ariel/mlops_zoomcamp/mlops_zoomcamp/homework2/mlruns/0/4f1880ead6e14cf1a7ed512b6b843621/artifacts
+end_time: 1717111011956
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4f1880ead6e14cf1a7ed512b6b843621
+run_name: classy-gnu-844
+run_uuid: 4f1880ead6e14cf1a7ed512b6b843621
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1717111000160
+status: 3
+tags: []
+user_id: ariel
