@@ -1,0 +1,17 @@
+import mlflow
+from mlflow.models import infer_signature
+
+
+if 'data_exporter' not in globals():
+    from mage_ai.data_preparation.decorators import data_exporter
+
+
+@data_exporter
+def log_model(lr,X_train):
+    with mlflow.start_run():
+        signature = infer_signature(X, lr.predict(X_train))
+
+        mlflow.sklearn.log_model(lr,
+                            artifact_path="model",
+                            signature=signature
+                            )

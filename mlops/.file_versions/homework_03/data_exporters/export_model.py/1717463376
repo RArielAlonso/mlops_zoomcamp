@@ -1,0 +1,21 @@
+import mlflow
+from mlflow.models import infer_signature
+
+
+if 'data_exporter' not in globals():
+    from mage_ai.data_preparation.decorators import data_exporter
+
+
+
+@data_exporter
+def export_data(data, *args, **kwargs):
+    print(data[1])
+    with mlflow.start_run():
+        mlflow.sklearn.log_model(data[1],
+                                 mlflow.sklearn.log_model(lr, artifact_path="model")
+                                #signature=signature,
+                                #serialization_format="pickle"
+                                )
+
+
+

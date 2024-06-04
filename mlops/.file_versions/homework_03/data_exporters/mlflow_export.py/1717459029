@@ -1,0 +1,27 @@
+import mlflow
+from mlflow.models import infer_signature
+
+
+if 'data_exporter' not in globals():
+    from mage_ai.data_preparation.decorators import data_exporter
+
+
+@data_exporter
+def log_model(lr):
+    # Signature
+    signature = infer_signature(X_test, y_test)
+
+    # Conda environment
+    custom_env =_mlflow_conda_env(
+        additional_conda_deps=None,
+        additional_pip_deps=["xgboost==1.5.2"],
+        additional_conda_channels=None,
+    )
+    # Sample
+    input_example = X_train.sample(n=1)
+    
+    mlflow.sklearn.log_model(lr,
+                            artifact_path="linear_regression",
+                            conda_env=custom_env,
+                            signature=signature,
+                            input_example=input_example)
