@@ -1,0 +1,15 @@
+FROM agrigorev/zoomcamp-model:mlops-2024-3.10.13-slim
+
+RUN pip install --no-cache-dir poetry
+
+WORKDIR /app
+
+COPY poetry.lock pyproject.toml /app/
+
+RUN poetry install
+
+COPY [ "homework4/score.py", "./" ]
+
+RUN mkdir -p output
+
+ENTRYPOINT ["poetry","run","python", "score.py" ]
