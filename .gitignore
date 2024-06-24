@@ -1,6 +1,7 @@
 mlflow.db
 /mlruns
 /homework4/output
+homework5/data/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
